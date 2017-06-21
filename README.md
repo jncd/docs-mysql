@@ -5,7 +5,7 @@ Docs for MySQL for [Pivotal Cloud Foundry](https://network.pivotal.io/products/p
 
 ## Which branch to use?
 
-**Note** Provide instructions in your PRs to indicate which branches you want Docs to apply your commits to. 
+**Note**: Provide instructions in your PRs to indicate which branches you want Docs to apply your commits to. 
 
 | Branch name | Use for… |
 |-------------| ------|
