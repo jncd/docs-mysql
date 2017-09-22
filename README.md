@@ -11,6 +11,7 @@ Docs for MySQL for [Pivotal Cloud Foundry](https://network.pivotal.io/products/p
 |-------------| ------|
 | master      | Don't use|
 | 2.0         | v2.0.x |
+| 1.10        | v1.10.x |
 | 1.9         | v1.9.x |
 | 1.8         | v1.8.x |
 | 1.7         | v1.7.x |
