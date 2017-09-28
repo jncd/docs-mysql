@@ -27,7 +27,7 @@ Provided below is a table for those that deploy the MySQL service on a different
 | Internal/TCP | Galera | 4567 |
 | Internal/TCP | Galera health check | 9200 |
 
-### <a id="load-balancer"></a> Configure a Load Balancer
+## <a id="load-balancer"></a> Configure a Load Balancer
 
 In older versions of the product, applications were given the IP of the single MySQL server in bind credentials. When upgrading to v1.5.0, existing applications will continue to function, but, to take advantage of high availability features, they must be rebound to receive either the IP of the first proxy instance or the IP/hostname of a load balancer.
 
@@ -60,11 +60,13 @@ If v1.5.0 is initially deployed without a load balancer and without proxy IPs co
 - Applications will have to be rebound to receive the hostname or IP that resolves to the load balancer. To rebind: unbind your application from the service instance, bind it again, then restage your application. For more information see [Managing Service Instances with the CLI](http://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html). In order to avoid unnecessary rebinding, we recommend configuring a load balancer before deploying v1.5.0.
 - Instead of configuring the proxy IPs in Operations manager, use the IPs that were dynamically assigned by looking at the **Status** page. Configuration of proxy IPs after the product is deployed with dynamically assigned IPs is not well supported; see [Known Issues](#known-issues).
 
-### <a id="asg"></a> Create an Application Security Group
+## <a id="asg"></a> Create an Application Security Group
 
-Create an [Application Security Group](http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html) (ASG) for MySQL for PCF to allow apps to access to the service. See [Creating Application Security Groups for MySQL](./app-security-groups.html) for instructions.
+Create an [Application Security Group](http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html) (ASG) for MySQL for PCF. See [Creating Application Security Groups for MySQL](./app-security-groups.html) for instructions.
 
-<p class="note"><strong>Note</strong>: The service will not be usable until an ASG is in place.</p>
+The ASG allows smoke tests to run when you install the MySQL for PCF service, and allows apps to access the service once it is installed.
+
+<p class="note"><strong>Note</strong>: The service will not be installable or usable until an ASG is in place.</p>
 
 ## <a id="install"></a>Install the MySQL for PCF Tile
 
