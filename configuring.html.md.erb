@@ -115,12 +115,6 @@ For more information about how MySQL for PCF is configured, see the [architectur
 
     See the [architecture documentation](architecture.html#innnodb-large-prefix) for information on this setting.
 
-- **Enable replication debug logging**
-
-    Default: Enabled
-
-    Directs MySQL for PCF service to log replication error events. Disable this option only if error logging is overloading your logging systems' capacity.
-
 - **Server Activity Logging**
 
     The MySQL service includes the [MariaDB Audit plugin](https://mariadb.com/kb/en/mariadb/about-the-mariadb-audit-plugin/) to log server activity. You can disable this plugin, or configure which [events](https://mariadb.com/kb/en/mariadb/about-the-mariadb-audit-plugin/#logging-events) are recorded. The log can be found at `/var/vcap/store/mysql_audit_logs/mysql_server_audit.log` on each VM. When server logging is enabled, the file is rotated every 100 megabytes, and the 30 most recent files are retained.
