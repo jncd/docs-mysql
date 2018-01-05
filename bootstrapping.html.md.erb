@@ -112,6 +112,9 @@ Sometimes this does not work immediately. If so, wait and try again a few minute
 
 In severe circumstances, such as a power failure, it is possible to lose all your VMs. You must recreate them before you can begin recovering the cluster. 
 
+Note: If the BOSH Resurrector is on, VMs that have been terminated or lost may be re-created automatically.
+If the Resurrector attempts to re-create the MySQL cluster VMs, they will not come up successfully.  
+
 To determine the state of your VMs, run one of the following commands depending on your Ops Manager version:
 
 <ul>
@@ -119,15 +122,24 @@ To determine the state of your VMs, run one of the following commands depending 
     <li><strong>Ops Manager v1.10:</strong> <code>bosh vms</code></li>
 </ul>
 
-The output resembles [this](#vms). If the VM is terminated or lost, the Process State for the `mysql` jobs is shown as `-`.
+The output resembles [this](#vms). If the VM is terminated or lost, the Process State for the `mysql` jobs is shown as `-`. 
+If the VM Resurrector attempted to recreate the VMs, they may instead be in the `failing` state.
 
 ### <a id="vm-recovery"></a>Recover Terminated or Lost VMs
 
-There are three steps to recover terminated or lost VMs:
+There are four steps to recover terminated or lost VMs:
 
+1. [Verify that the BOSH Resurrector is off](#check-resurrector)
 1. [Recreate the Missing VMs](#recreate)
 1. [Run the Bootstrap Errand](#run-the-errand)
 1. [Restore the BOSH Configuration](#reset-deployment)
+
+#### <a id="check-resurrector"></a> Verify that the BOSH Resurrector is off
+
+Check whether the BOSH [VM Resurrector](http://docs.pivotal.io/pivotalcf/customizing/resurrector.html#enabling) is enabled. 
+
+If the BOSH Resurrector is on, please contact <a href="https://support.pivotal.io">Pivotal Support</a> for assistance with recovering your cluster.
+If the Resurrector is off, proceed with the following recovery steps.
 
 #### <a id="recreate"></a> Recreate the Missing VMs
 
