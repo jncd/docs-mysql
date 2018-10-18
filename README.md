@@ -1,6 +1,10 @@
 docs-mysql
 ==========
 
+** DO NOT USE THIS REPO YET **
+
+The live docs are published from the https://github.com/pivotal-cf/docs-mysql repo.
+
 Docs for MySQL for [Pivotal Cloud Foundry](https://network.pivotal.io/products/pivotal-cf) (PCF)
 
 ## Which branch to use?
